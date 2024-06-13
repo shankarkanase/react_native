@@ -1,0 +1,14 @@
+If expo CLI error run - npm add expo
+
+
+to run - npx expo start
+
+npm install @react-navigation/native
+npm install @react-navigation/stack
+npm install react-native-dropdown-picker
+
+npm link @react-native-community/geolocation
+
+npm install @react-navigation/drawer
+
+expo install expo-location
