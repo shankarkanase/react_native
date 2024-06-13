@@ -67,7 +67,7 @@ export default function App({}) {
       <Stack.Screen name="Clock In" component={ClockinForm} />
       <Stack.Screen name="Clock Out" component={ClockoutForm} />
       <Stack.Screen name="Clock In Out List" component={ClockInOutList} />
-      <Stack.Screen name="CameraScreen" component={CameraScreen} />
+      <Stack.Screen name="Add Photo" component={CameraScreen} />
     </Stack.Navigator>
   </NavigationContainer>
 

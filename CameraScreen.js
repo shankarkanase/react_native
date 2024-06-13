@@ -149,6 +149,13 @@ export default function CameraScreen() {
       </View>
     );
   }
+  function toggleCameraType() {
+    setCameraType(
+      cameraType === Camera.Constants.Type.back
+        ? Camera.Constants.Type.front
+        : Camera.Constants.Type.back
+    );
+  }
 
   let saveButton;
 
@@ -157,7 +164,8 @@ export default function CameraScreen() {
   return (
     <View style={styles.container}>
 
-
+{!cameraActive && ( // Render camera screen only when cameraActive is true
+    <View>
       <Text style={styles.label}>Select User</Text>
       <FlatList
         data={items}
@@ -195,7 +203,14 @@ export default function CameraScreen() {
 
       <View style={styles.buttonContainer}>
               {saveButton}
-            </View>
+      </View>
+
+      </View>
+
+      
+       )}
+
+      
 
       {cameraActive && ( // Render camera screen only when cameraActive is true
         <CameraView style={styles.camera} ref={cameraRef} facing={facing}>
@@ -205,6 +220,9 @@ export default function CameraScreen() {
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={takePicture}>
               <Text style={styles.text}>Take Picture</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
+              <Text style={styles.text}>Flip Camera</Text>
             </TouchableOpacity>
           </View>
         </CameraView>
@@ -224,7 +242,7 @@ export default function CameraScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+  
   },
   camera: {
     flex: 1,
@@ -256,7 +274,7 @@ const styles = StyleSheet.create({
   },
   dropdownContainer: {
     marginTop: 10,
-    marginBottom: 100,
+    marginBottom: 250,
     zIndex: 1000,
     maxHeight: 400,
   },

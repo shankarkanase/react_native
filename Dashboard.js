@@ -32,9 +32,9 @@ export default function Dashboard() {
                 <FontAwesome name="clock-o" size={60} color="black" />
                 <Text style={styles.buttonText}>Report</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('CameraScreen')}>
+              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Add Photo')}>
                 <FontAwesome name="file-text-o" size={60} color="black" />
-                <Text style={styles.buttonText}>Report</Text>
+                <Text style={styles.buttonText}>Add User Photo</Text>
               </TouchableOpacity>
             </View>
           </View>
