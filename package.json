@@ -14153,10 +14153,16 @@
     "@react-navigation/drawer": "^6.6.15",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.29",
+    "@tensorflow/tfjs": "^4.20.0",
+    "@tensorflow/tfjs-react-native": "^1.0.0",
     "expo": "~51.0.14",
     "expo-camera": "~15.0.11",
+    "expo-file-system": "~17.0.1",
     "expo-location": "~17.0.1",
+    "face-api.js": "^0.22.2",
     "react-native-dropdown-picker": "^5.4.6",
+    "react-native-fs": "^2.20.0",
+    "react-native-image-picker": "^7.1.2",
     "react-native-reanimated": "~3.10.1"
   }
 }

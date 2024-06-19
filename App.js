@@ -7,6 +7,8 @@ import ClockinForm from './ClockinForm';
 import ClockoutForm from './ClockoutForm';
 import ClockInOutList from './ClockInOutList';
 import CameraScreen from './CameraScreen';
+import FaceMatchingComponentIn from './FaceMatchingComponentIn';
+import FaceMatchingComponentOut from './FaceMatchingComponentOut';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Dashboard from './Dashboard';
@@ -68,6 +70,8 @@ export default function App({}) {
       <Stack.Screen name="Clock Out" component={ClockoutForm} />
       <Stack.Screen name="Clock In Out List" component={ClockInOutList} />
       <Stack.Screen name="Add Photo" component={CameraScreen} />
+      <Stack.Screen name="Photo In" component={FaceMatchingComponentIn} />
+      <Stack.Screen name="Photo Out" component={FaceMatchingComponentOut} />
     </Stack.Navigator>
   </NavigationContainer>
 

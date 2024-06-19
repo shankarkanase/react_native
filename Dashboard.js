@@ -37,6 +37,20 @@ export default function Dashboard() {
                 <Text style={styles.buttonText}>Add User Photo</Text>
               </TouchableOpacity>
             </View>
+            <View style={styles.row}>
+              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photo In')}>
+                <FontAwesome name="user" size={30} color="black" />
+                <FontAwesome name="sign-in" size={30} color="black" />
+                <Text style={styles.buttonText}>Photo In</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photo Out')}>
+                <FontAwesome name="user" size={30} color="black" />
+                <FontAwesome name="sign-out" size={30} color="black" />
+                <Text style={styles.buttonText}>Photo Out</Text>
+              </TouchableOpacity>
+              
+            </View>
           </View>
         );
     }

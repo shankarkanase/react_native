@@ -119,6 +119,8 @@ export default function CameraScreen() {
     }
   }
 
+  
+
   if (!permission) {
     // Camera permissions are still loading.
     return <View />;
