@@ -149,13 +149,14 @@ export default function CameraScreen() {
       </View>
     );
   }
-  function toggleCameraType() {
+  
+  const toggleCameraType = () => {
     setCameraType(
       cameraType === Camera.Constants.Type.back
         ? Camera.Constants.Type.front
         : Camera.Constants.Type.back
     );
-  }
+  };
 
   let saveButton;
 
@@ -248,15 +249,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: 'transparent',
-    margin: 20,
+    flexDirection: 'row',  // Arrange buttons horizontally
+    justifyContent: 'space-between', // Space evenly between buttons
+    paddingHorizontal: 10, // Add horizontal padding to the container
+    paddingBottom: 10, // Optional: Add bottom padding if needed
   },
+ 
   button: {
+    backgroundColor: '#AABBCC', 
     padding: 10,
     borderRadius: 5,
-    backgroundColor: '#007AFF',
+    flex: 1, // Take up equal space within the row
+    marginHorizontal: 5, // Optional: Add some horizontal margin between buttons
   },
   text: {
     fontSize: 16,
