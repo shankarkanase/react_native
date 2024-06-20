@@ -67,6 +67,8 @@ export default function ClockinForm({ handleDataListPress }) {
       formData1.append('status_date', new Date().toLocaleDateString());
       formData1.append('status_time', new Date().toLocaleTimeString());
       formData1.append('status', 'IN');
+      formData1.append('clock_by', 'Manual');
+      formData1.append('clock_type', '1');
       formData1.append('lat', location.coords.latitude);
       formData1.append('lng', location.coords.longitude);
       

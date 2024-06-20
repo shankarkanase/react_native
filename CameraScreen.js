@@ -102,6 +102,8 @@ export default function CameraScreen() {
 
   function toggleCameraScreen() {
     setCameraActive(active => !active); // Toggle camera screen active state
+
+    
   }
 
   async function takePicture() {
@@ -115,6 +117,7 @@ export default function CameraScreen() {
       });
 
       console.log('Photo captured:', photo);
+      toggleCameraScreen(); // Automatically close the camera after taking a picture
       // You can use the photo data here, such as saving it to a file or displaying it in an Image component
     }
   }
@@ -167,6 +170,8 @@ export default function CameraScreen() {
   return (
     <View style={styles.container}>
 
+{formData.photo && <Image style={styles.image} source={{ uri: formData.preview }} style={{ width: 200, height: 200 }} />}
+
 {!cameraActive && ( // Render camera screen only when cameraActive is true
     <View>
       <Text style={styles.label}>Select User</Text>
@@ -202,7 +207,7 @@ export default function CameraScreen() {
         }
       />
 
-      {formData.photo && <Image source={{ uri: formData.preview }} style={{ width: 200, height: 200 }} />}
+     
 
       <View style={styles.buttonContainer}>
               {saveButton}
@@ -215,24 +220,21 @@ export default function CameraScreen() {
 
       
 
-      {cameraActive && ( // Render camera screen only when cameraActive is true
+{cameraActive && (
         <CameraView style={styles.camera} ref={cameraRef} facing={facing}>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={toggleCameraScreen}>
+          <View style={styles.cameraButtonContainer}>
+            <TouchableOpacity style={styles.halfButton} onPress={toggleCameraScreen}>
               <Text style={styles.text}>Close Camera</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={takePicture}>
+            <TouchableOpacity style={styles.halfButton} onPress={takePicture}>
               <Text style={styles.text}>Take Picture</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
-              <Text style={styles.text}>Flip Camera</Text>
             </TouchableOpacity>
           </View>
         </CameraView>
       )}
 
-      {!cameraActive && ( // Render button to turn on camera screen when cameraActive is false
-        <TouchableOpacity style={styles.button} onPress={toggleCameraScreen}>
+      {!cameraActive && (
+        <TouchableOpacity style={styles.openCameraButton} onPress={toggleCameraScreen}>
           <Text style={styles.text}>Open Camera</Text>
         </TouchableOpacity>
       )}
@@ -243,6 +245,7 @@ export default function CameraScreen() {
 }
 
 const styles = StyleSheet.create({
+ 
   container: {
     flex: 1,
   
@@ -283,5 +286,28 @@ const styles = StyleSheet.create({
     marginBottom: 250,
     zIndex: 1000,
     maxHeight: 400,
+  },
+  cameraButtonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingHorizontal: 10,
+    paddingBottom: 10,
+  },
+  openCameraButton: {
+    backgroundColor: '#AABBCC',
+    padding: 10,
+    borderRadius: 5,
+    alignSelf: 'center',
+    marginVertical: 10,
+    position: 'absolute',
+    bottom: 20,
+    width: '90%',
+  },
+  halfButton: {
+    backgroundColor: '#AABBCC',
+    padding: 10,
+    borderRadius: 5,
+    flex: 1,
+    marginHorizontal: 5,
   },
 });

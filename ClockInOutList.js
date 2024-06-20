@@ -58,7 +58,7 @@ const itemstyle='item';
         <Text style={styles.clockstatustext}>{item.Name}</Text>
         <Text>{item.StatusDate} {item.StatusTime}</Text>
         <View style={styles.clockstatus}>
-        <Text style={styles.clockstatustext}>{item.Status}</Text>
+        <Text style={styles.clockinouttext}>{item.clock_by} {item.Status}</Text>
         </View>
       </View>
     </View>
@@ -94,15 +94,14 @@ const itemstyle='item';
 };
 
 const styles = StyleSheet.create({
+  clockinouttext:{
+fontWeight:'bold'
+  },
   clockstatustext:{
 
 fontWeight:'bold'
   },
-  clockstatus:{
-    position:'absolute',
-    marginLeft:280,
-    alignSelf:'right',
-  },
+  
   container: {
     flex: 1,
     padding: 16,
@@ -129,6 +128,7 @@ fontWeight:'bold'
     top:20,
     backgroundColor:'#cedcf2',
     marginTop:20,
+    height:150
   },
   item1: {
     flexDirection: 'row',
@@ -140,6 +140,7 @@ fontWeight:'bold'
     top:20,
     backgroundColor:'#b6f2ea',
     marginTop:20,
+    height:150
   },
   itemDetails: {
     flex: 1,

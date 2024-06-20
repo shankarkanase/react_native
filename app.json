@@ -6,7 +6,11 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -30,9 +34,10 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "owner": "shankarkanase",
     "extra": {
       "eas": {
-        "projectId": "643dc47b-9a78-4730-b33c-a595e3f95939"
+        "projectId": "2018f647-7b2e-4e0f-93a7-e95c6a5c6469"
       }
     }
   }

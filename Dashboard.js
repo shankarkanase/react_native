@@ -17,15 +17,41 @@ export default function Dashboard() {
         return (
           <View style={styles.container}>
             <Text style={styles.title}>Dashboard</Text>
+
+            <View style={styles.row}>
+              <Text style={styles.header}>Manual</Text>
+            </View>
             <View style={styles.row}>
               <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Clock In')}>
-                <FontAwesome name="sign-in" size={60} color="black" />
+              <FontAwesome name="user" size={30} color="black" />
+              <FontAwesome name="sign-in" size={30} color="black" />
                 <Text style={styles.buttonText}>Clock In</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Clock Out')}>
-                <FontAwesome name="sign-out" size={60} color="black" />
+              <FontAwesome name="user" size={30} color="black" />
+              <FontAwesome name="sign-out" size={30} color="black" />
                 <Text style={styles.buttonText}>Clock Out</Text>
               </TouchableOpacity>
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.header}>Biometric</Text>
+            </View>
+            <View style={styles.row}>
+              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photo In')}>
+                <FontAwesome name="image" size={30} color="black" />
+                <FontAwesome name="sign-in" size={30} color="black" />
+                <Text style={styles.buttonText}>Photo In</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photo Out')}>
+                <FontAwesome name="image" size={30} color="black" />
+                <FontAwesome name="sign-out" size={30} color="black" />
+                <Text style={styles.buttonText}>Photo Out</Text>
+              </TouchableOpacity>
+              
+            </View>
+            <View style={styles.row}>
+              <Text style={styles.header}>Report</Text>
             </View>
             <View style={styles.row}>
               <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Clock In Out List')}>
@@ -37,20 +63,7 @@ export default function Dashboard() {
                 <Text style={styles.buttonText}>Add User Photo</Text>
               </TouchableOpacity>
             </View>
-            <View style={styles.row}>
-              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photo In')}>
-                <FontAwesome name="user" size={30} color="black" />
-                <FontAwesome name="sign-in" size={30} color="black" />
-                <Text style={styles.buttonText}>Photo In</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Photo Out')}>
-                <FontAwesome name="user" size={30} color="black" />
-                <FontAwesome name="sign-out" size={30} color="black" />
-                <Text style={styles.buttonText}>Photo Out</Text>
-              </TouchableOpacity>
-              
-            </View>
+           
           </View>
         );
     }
@@ -69,6 +82,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
   },
+  header:{
+    width: '100%',
+    textAlign: 'center',
+    fontSize: 16,
+    backgroundColor: '#4e9999',
+    color:'white'
+  },
   title: {
     fontSize: 24,
     marginBottom: 20,
@@ -77,7 +97,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     width: '100%',
-    marginBottom: 20,
+    marginBottom: 10,
   },
   button: {
     flex: 1,

@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef,useEffect } from 'react';
 import { ActivityIndicator, Button, StyleSheet, Text, TouchableOpacity, View, Image, Alert } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
+import * as Location from 'expo-location';
 
 const api_path = "http://192.168.0.78/outgraft/Services_FM_1_24/";
 
@@ -10,6 +11,20 @@ export default function FaceMatchingComponentIn() {
   const [cameraActive, setCameraActive] = useState(false);
   const [loading, setLoading] = useState(false); // State for loading indicator
   const cameraRef = useRef(null);
+  const [location, setLocation] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg('Permission to access location was denied');
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+    })();
+  }, []);
 
   const [formData, setFormData] = useState({
     user_id: null,
@@ -99,8 +114,10 @@ export default function FaceMatchingComponentIn() {
       formData1.append('status_date', new Date().toLocaleDateString());
       formData1.append('status_time', new Date().toLocaleTimeString());
       formData1.append('status', 'IN');
-      formData1.append('lat', "");
-      formData1.append('lng', "");
+      formData1.append('clock_by', 'Biometric');
+      formData1.append('clock_type', '55');
+      formData1.append('lat', location.coords.latitude);
+      formData1.append('lng', location.coords.longitude);
 
       const response = await fetch(api_path + 'clockinout_service.php', {
         method: 'POST',
