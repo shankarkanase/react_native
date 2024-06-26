@@ -6,13 +6,15 @@ workflows:
     environment:
       node: 16
       xcode: latest
+      android: "29.0.3"  # Specify the Android SDK version if needed
     scripts:
       - name: Install dependencies
         script: |
-          npm install -g expo-cli eas-cli
+          npm install -g react-native-cli
           npm install
       - name: Build APK
         script: |
-          eas build -p android
+          cd android
+          ./gradlew assembleRelease
     artifacts:
-      - build/app/outputs/apk/release/*.apk
+      - android/app/build/outputs/apk/release/app-release.apk
