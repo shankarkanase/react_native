@@ -9,12 +9,10 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
-          cd .
-          npm install -g expo-cli
+          npm install -g expo-cli eas-cli
           npm install
       - name: Build APK
         script: |
-          cd .
-          expo build:android -t apk
+          eas build -p android
     artifacts:
-      - expo-project/android/app/build/outputs/apk/release/app-release.apk
+      - build/app/outputs/apk/release/*.apk
