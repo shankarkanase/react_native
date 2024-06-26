@@ -6,7 +6,6 @@ workflows:
     environment:
       node: 16
       xcode: latest
-      android: "29.0.3"  # Specify the Android SDK version if needed
     scripts:
       - name: Install dependencies
         script: |
