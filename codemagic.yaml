@@ -1,18 +1,20 @@
-workflows:
-  version: 2.1
+version: 2.1
 
+workflows:
   build-and-create-apk:
     name: Build and Create APK
     environment:
       node: 16
-      working_directory: "."
+      xcode: latest
     scripts:
       - name: Install dependencies
         script: |
+          cd .
           npm install -g expo-cli
           npm install
       - name: Build APK
         script: |
+          cd .
           expo build:android -t apk
     artifacts:
       - expo-project/android/app/build/outputs/apk/release/app-release.apk
